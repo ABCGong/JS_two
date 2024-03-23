@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%;" class="tool">
-    <el-container style="height: 100%;">
+    <el-container v-if="false" style="height: 100%;">
       <el-aside width="600px"  class="asidez">
         <el-upload
     class="upload-demo"
@@ -97,6 +97,7 @@
 </div>
       </el-main>
     </el-container>
+    
   </div>
   
   <el-tour v-model="myopen" >
@@ -120,7 +121,7 @@
                 description="这里可以查看后端视频处理进度，请耐心等待"
                 />
   </el-tour>
-  
+  <response/>
 </template>
 <script setup lang="ts">
 import { UploadFilled } from '@element-plus/icons-vue'
@@ -128,7 +129,7 @@ import {ref} from "vue"
 import type { ButtonInstance } from 'element-plus'
 import { onMounted } from 'vue'
 
-
+ 
 const ref1 = ref<ButtonInstance>()
 
 const ref3 = ref<ButtonInstance>()
