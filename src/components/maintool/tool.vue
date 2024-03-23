@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%;" class="tool">
-    <el-container v-if="false" style="height: 100%;">
+    <el-container v-if="isload" style="height: 100%;">
       <el-aside width="600px"  class="asidez">
         <el-upload
     class="upload-demo"
@@ -92,12 +92,12 @@
     </el-select>
   </div>
   <div class="mb-3" style="margin: 30px; margin-left: 60px;">
-    <el-button type="success" round ref="ref3">上传处理</el-button>
+    <el-button type="success" round ref="ref3" @click="load">上传处理</el-button>
   </div>
 </div>
       </el-main>
     </el-container>
-    
+    <response/>
   </div>
   
   <el-tour v-model="myopen" >
@@ -121,14 +121,14 @@
                 description="这里可以查看后端视频处理进度，请耐心等待"
                 />
   </el-tour>
-  <response/>
+  
 </template>
 <script setup lang="ts">
 import { UploadFilled } from '@element-plus/icons-vue'
 import {ref} from "vue"
 import type { ButtonInstance } from 'element-plus'
 import { onMounted } from 'vue'
-
+import response  from '@/components/maintool/response.vue'
  
 const ref1 = ref<ButtonInstance>()
 
@@ -139,6 +139,10 @@ const value2 = ref([])
 const value3 = ref([])
 const value4 = ref([]) 
 const myopen = ref(false)
+const isload = ref(true)
+const load=()=>{
+  isload.value=false
+}
 onMounted(()=>{
   setTimeout(()=>{
        myopen.value=true
