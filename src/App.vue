@@ -43,7 +43,7 @@ import myfoot from "@/components/foot.vue";
 .aside{
   background-color: rgb(255, 255, 255);
   height: 100%;
-  width: 15%;
+  width: 10.5%;
 }
 .container{
  height: 690px;

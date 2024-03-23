@@ -42,7 +42,7 @@
        </div>
        <div class="tb" id="tb">
        <div class="m-3">
-    <p>模型选择</p>
+    <p class="ff">模型选择</p>
     <el-select
       v-model="value2"
       collapse-tags
@@ -50,7 +50,7 @@
       style="width: 240px"
     >
       <el-option
-        v-for="item in options"
+        v-for="item in optionsb"
         :key="item.value"
         :label="item.label"
         :value="item.value"
@@ -58,7 +58,7 @@
     </el-select>
   </div>
   <div class="m-3">
-    <p>农作物种类选择</p>
+    <p class="ff">农作物种类选择</p>
     <el-select
       v-model="value1"
       multiple
@@ -66,7 +66,7 @@
       style="width: 240px"
     >
       <el-option
-        v-for="item in options"
+        v-for="item in optionsa"
         :key="item.value"
         :label="item.label"
         :value="item.value"
@@ -75,7 +75,7 @@
     
   </div>
   <div class="m-3">
-    <p>模型精度选择</p>
+    <p class="ff">模型精度选择</p>
     <el-select
       v-model="value3"
       collapse-tags
@@ -99,26 +99,26 @@
     </el-container>
   </div>
   
-  <el-tour v-model="myopen"  @finish="handleTourFinish" @close="handleTourFinish">
-    <el-tour-step :target="ref1?.$el" title="Upload File">
+  <el-tour v-model="myopen" >
+              <el-tour-step :target="ref1?.$el" title="文件上传与注意事项">
 
-      <div>Put you files here.</div>
-    </el-tour-step>
-    <el-tour-step
-      target=".tb"
-      title="Save"
-      description="Save your changes"
-    />
-    <el-tour-step
-      :target="ref3?.$el"
-      title="Other Actions"
-      description="Click to see other"
-    />
-    <el-tour-step
-      target="#tree"
-      title="Other Actions"
-      description="Click to see other"
-    />
+                <div>网络环境差时可能导致文件传输失败哦~~</div>
+                </el-tour-step>
+                <el-tour-step
+                target=".tb"
+                title="模型参数选择"
+                description="模型参数选择"
+                />
+                <el-tour-step
+                :target="ref3?.$el"
+                title="视频文件处理"
+                description="点击即可处理视频，处理时间长，请耐心等待"
+                />
+                <el-tour-step
+                target="#tree"
+                title="处理进度"
+                description="这里可以查看后端视频处理进度，请耐心等待"
+                />
   </el-tour>
   
 </template>
@@ -137,39 +137,45 @@ const value1 = ref([])
 const value2 = ref([])
 const value3 = ref([])
 const value4 = ref([]) 
-let myopen=false
-const handleTourFinish=()=>{
- myopen=false
-}
-onMounted(() => {
+const myopen = ref(false)
+onMounted(()=>{
   setTimeout(()=>{
-    console.log("45454")
-    myopen=true
-  },3000)
+       myopen.value=true
+       console.log(myopen.value)
+  },1500)
 })
-const options = [
+const optionsa = [
   {
-    value: 'Option1',
-    label: 'Option1',
+    value: '小麦',
+    label: '小麦',
   },
   {
-    value: 'Option2',
-    label: 'Option2',
+    value: '水稻',
+    label: '水稻',
   },
   {
-    value: 'Option3',
-    label: 'Option3',
+    value: '玉米',
+    label: '玉米',
   },
   {
-    value: 'Option4',
-    label: 'Option4',
+    value: '大豆',
+    label: '大豆',
   },
   {
-    value: 'Option5',
-    label: 'Option5',
+    value: '油菜',
+    label: '油菜',
   },
 ]
-
+const optionsb = [
+  {
+    value: '农作物生长状态检测',
+    label: '农作物生长状态检测',
+  },
+  {
+    value: '农作物害虫检测',
+    label: '农作物害虫检测',
+  },
+]
 </script>
 <style scoped>
 .asidez{
@@ -190,6 +196,16 @@ const options = [
   position: relative;
   left: 10%;
   top: 20%;
+}
+  /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: "阿里妈妈数黑体 Bold";font-weight: 700;src: url("//at.alicdn.com/wf/webfont/wl2T05KepNcG/FekERHyVfQhp.woff2") format("woff2"),
+  url("//at.alicdn.com/wf/webfont/wl2T05KepNcG/48ySayR0yYF0.woff") format("woff");
+  font-display: swap;
+}
+.ff{
+  font-family: "阿里妈妈数黑体 Bold";
+  color:black
 }
 .tool{
   background-image: url("C:/Users/G/Desktop/project/vue-project/src/components/maintool/bg5.jpg");
