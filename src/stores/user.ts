@@ -14,7 +14,8 @@ export const useUserStore = defineStore({
   id: 'user',
   state: () => ({
     name:"",
-    isAdmin:true
+    isAdmin:true,
+    img:"https://img.zcool.cn/community/01e6915e78374ea801216518a28ae2.jpg@1280w_1l_2o_100sh.jpg"
   }),
 
   actions: {

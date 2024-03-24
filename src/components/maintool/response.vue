@@ -1,18 +1,18 @@
 <template>
-    <el-descriptions title="模型识别与分析结果" column=1>
-      <el-descriptions-item label="模型">害虫识别</el-descriptions-item>
-      <el-descriptions-item label="处理时间">1000</el-descriptions-item>
+    <el-descriptions title="模型识别与分析结果" column=1 class="bg">
+      <el-descriptions-item label="模型" >害虫识别</el-descriptions-item>
+      <el-descriptions-item label="处理时间" >1000</el-descriptions-item>
       <el-descriptions-item label="识别到农作物种类">
         <el-tag id="tag" size="small" v-for="item in lzw">{{ item }}</el-tag>
 
       </el-descriptions-item>
       <el-descriptions-item :label="txt" >
-        <el-card style="width: 80%" shadow="always">
+        <el-card style="width: 80%;position: relative;left: 10%;" shadow="always">
            <div v-for="it in list" :key="it" class="ff">
                 <div v-if="it.id==count">
                     <el-row :gutter="6" style="margin-top:10px;">
         <el-col :span="12">
-            <el-card style="width:400px" shadow="always" class="ca">
+            <el-card style="width:320px" shadow="always" class="ca">
                 <el-carousel height="240px" motion-blur>
                     <el-carousel-item v-for="item in 4" :key="item">
                     <h3 class="small justify-center" text="2xl">{{ item }}</h3>
@@ -41,6 +41,7 @@
                     <el-icon class="el-icon--right" ><ArrowRight /></el-icon>
                     </el-button>
                 </el-button-group>
+                <el-button type="primary" style="margin-left: 20px;" @click="">下载PDF</el-button>
                 </el-card>
         </el-col>
                     </el-row>
@@ -48,20 +49,23 @@
                 
                
                 <el-input
-                v-model="textarea"
+                v-model="resTxt"
                 maxlength="4096"
-                placeholder="Please input"
+                placeholder="结果正在分析生成中，请稍后......."
                 show-word-limit
                 type="textarea"
                 class="ip"
+                :autosize="{minRows:2,maxRows:8}"
                 />
                 </div>
            </div>
         </el-card>
 
       </el-descriptions-item>
-      <el-descriptions-item label="图形化数字">
-   
+      <el-descriptions-item label="图形化数字" >
+        <div 
+        style="height: 900px;"
+        ></div>
       </el-descriptions-item>
    
     </el-descriptions>
@@ -74,6 +78,7 @@ import {
 import {ref} from 'vue'
 const lzw=["小麦","水稻","玉米","大豆","油菜"]
 let count=ref(0)
+const resTxt=ref("斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急")
 const add=()=>{
     if(count.value<lzw.length-1){
         count.value+=1
@@ -124,7 +129,25 @@ const list=[
 const txt=ref("查看结果-共有"+lzw.length+"条结果")
 console.log(txt.value)
 </script>
-<style>
+<style scoped>
+
+.bg{
+    position: relative;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 30px;
+    background-color:rgb(255, 255, 255);
+    width: 80%;
+    top: 5%;
+    left: 10%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    box-shadow: 4px;
+}
+
+
 #tag{
     margin-right: 10px;
 
@@ -138,7 +161,7 @@ console.log(txt.value)
 .ip{
     margin-top: 20px;
     width: 100%;
-    
+    min-height: 100px;
  
 }
 </style>
