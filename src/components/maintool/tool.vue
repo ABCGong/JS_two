@@ -216,7 +216,7 @@ const optionsb = [
   color:black
 }
 .tool{
-  background-image: url("C:/Users/G/Desktop/project/vue-project/src/components/maintool/bg5.jpg");
+  background-image: url("@/components/maintool/bg5.jpg");
     background-repeat:no-repeat;
     width: 100%;
     height: auto;
@@ -224,6 +224,7 @@ const optionsb = [
     margin: 0;
 }
 .toolchage{
+
     width: 100%;
     height: auto;
     padding: 0;

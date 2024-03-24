@@ -41,6 +41,7 @@
     text-align: right;
     font-size: 35px;
     padding-right: 60px;
+    color: black;
 }
 .bg{
     background-image: url("C:/Users/G/Desktop/project/vue-project/src/components/maintool/bg.svg");

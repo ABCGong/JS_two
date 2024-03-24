@@ -49,7 +49,7 @@ import myfoot from "@/components/foot.vue";
  height: 690px;
 }
 .main{
-  height: 100%;
+  
   color: rgba(255, 255, 255, 0);
   padding: 0;
   margin: 0;

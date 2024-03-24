@@ -8,8 +8,8 @@
     >
       <el-menu-item index="0">
         <img
-          style="width: 100px"
-          
+          style="width: 40px"
+          src="@/assets/iconapp.png"
           alt="Element logo"
         />
       </el-menu-item>
@@ -17,16 +17,18 @@
       <el-menu-item index="1">工作区</el-menu-item>
       <el-sub-menu index="2">
         <template #title v-if="!user.isAdmin"><router-link to="/login">未登录</router-link></template>
-        <template #title v-else-if="user.isAdmin">{{ user.name }}</template>
-        <el-menu-item index="2-1">item one</el-menu-item>
-        <el-menu-item index="2-2">item two</el-menu-item>
-        <el-menu-item index="2-3">item three</el-menu-item>
-        <el-sub-menu index="2-4">
-          <template #title>item four</template>
-          <el-menu-item index="2-4-1">item one</el-menu-item>
-          <el-menu-item index="2-4-2">item two</el-menu-item>
-          <el-menu-item index="2-4-3"></el-menu-item>
-        </el-sub-menu>
+        <template #title v-else-if="user.isAdmin">
+          <el-avatar :size="40" :src="user.img" />
+        </template>
+        <el-menu-item index="2-1" :disabled="!user.isAdmin">
+           个人中心
+        </el-menu-item>
+        <el-menu-item index="2-2" :disabled="!user.isAdmin">
+           控制台
+        </el-menu-item>
+        <el-menu-item index="2-3" :disabled="!user.isAdmin">
+           退出登录
+        </el-menu-item>
       </el-sub-menu>
     </el-menu>
   </template>

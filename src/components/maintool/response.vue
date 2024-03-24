@@ -41,7 +41,7 @@
                     <el-icon class="el-icon--right" ><ArrowRight /></el-icon>
                     </el-button>
                 </el-button-group>
-                
+                <el-button type="primary" style="margin-left: 20px;" @click="">下载PDF</el-button>
                 </el-card>
         </el-col>
                     </el-row>
@@ -49,12 +49,13 @@
                 
                
                 <el-input
-                v-model="textarea"
+                v-model="resTxt"
                 maxlength="4096"
-                placeholder="Please input"
+                placeholder="结果正在分析生成中，请稍后......."
                 show-word-limit
                 type="textarea"
                 class="ip"
+                :autosize="{minRows:2,maxRows:8}"
                 />
                 </div>
            </div>
@@ -77,6 +78,7 @@ import {
 import {ref} from 'vue'
 const lzw=["小麦","水稻","玉米","大豆","油菜"]
 let count=ref(0)
+const resTxt=ref("斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急")
 const add=()=>{
     if(count.value<lzw.length-1){
         count.value+=1
@@ -159,7 +161,7 @@ console.log(txt.value)
 .ip{
     margin-top: 20px;
     width: 100%;
-    
+    min-height: 100px;
  
 }
 </style>
