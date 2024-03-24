@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100%;" class="tool">
+  <div style="height: 100%;" :class="cls">
     <el-container v-if="isload" style="height: 100%;">
       <el-aside width="600px"  class="asidez">
         <el-upload
@@ -97,7 +97,8 @@
 </div>
       </el-main>
     </el-container>
-    <response/>
+    <div v-else-if="!isload"><response/></div>
+    
   </div>
   
   <el-tour v-model="myopen" >
@@ -140,8 +141,10 @@ const value3 = ref([])
 const value4 = ref([]) 
 const myopen = ref(false)
 const isload = ref(true)
+const cls=ref("tool")
 const load=()=>{
   isload.value=false
+  cls.value="toolchage"
 }
 onMounted(()=>{
   setTimeout(()=>{
@@ -214,9 +217,15 @@ const optionsb = [
 }
 .tool{
   background-image: url("C:/Users/G/Desktop/project/vue-project/src/components/maintool/bg5.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+    background-repeat:no-repeat;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+.toolchage{
+    width: 100%;
+    height: auto;
     padding: 0;
     margin: 0;
 }

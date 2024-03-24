@@ -50,7 +50,7 @@ import myfoot from "@/components/foot.vue";
 }
 .main{
   height: 100%;
-  color: red;
+  color: rgba(255, 255, 255, 0);
   padding: 0;
   margin: 0;
 }
