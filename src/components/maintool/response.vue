@@ -63,9 +63,7 @@
 
       </el-descriptions-item>
       <el-descriptions-item label="图形化数字" >
-        <div 
-        style="height: 900px;"
-        ></div>
+        <chart/>
       </el-descriptions-item>
    
     </el-descriptions>
@@ -76,7 +74,8 @@ import {
   ArrowRight,
 } from '@element-plus/icons-vue'
 import {ref} from 'vue'
-const lzw=["小麦","水稻","玉米","大豆","油菜"]
+import chart from '@/components/maintool/chart.vue'
+const lzw=["小麦","水稻","玉米","大豆","油菜","棉花","梨树","桃树","豇豆","芝麻","西瓜","黄瓜","番茄","葡萄","猕猴桃","甜瓜"]
 let count=ref(0)
 const resTxt=ref("斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急斤斤计较急急急急急急急急急急急急急急急")
 const add=()=>{
