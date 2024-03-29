@@ -2,22 +2,30 @@
     <div
     ref="myChart"
     id="chart-container">
-    
     </div>
 
 </template>
 
 <script setup>
+import * as echarts from 'echarts';
+import { init } from 'echarts/core';
+import { onMounted, onUnmounted } from 'vue';
+let echart = echarts
+onMounted(()=>{
+  initChart()
+})
+onUnmounted(()=>{
+  echart.dispose();
+})
 
-const dom = this.$refs['myChart'];
-var myChart = echarts.init(dom, null, {
+function initChart(){
+  var myChart = echart.init(document.getElementById("chart-container"), null, {
   renderer: 'canvas',
   useDirtyRect: false
-});
-var app = {};
-
+  
+  });
+  
 var option;
-
 option = {
   tooltip: {
     trigger: 'item',
@@ -39,7 +47,7 @@ option = {
   },
   series: [
     {
-      name: 'Access From',
+      name: ' 农作物种类',
       type: 'pie',
       selectedMode: 'single',
       radius: [0, '30%'],
@@ -51,11 +59,14 @@ option = {
         show: false
       },
       data: [
-        { value: 1548, name: 'Search Engine' },
-        { value: 775, name: 'Direct' },
-        { value: 679, name: 'Marketing', selected: true }
+        { value: 1548, name: '水稻' },
+        { value: 775, name: '小麦' },
+        { value: 775, name: '西瓜' },
+        { value: 775, name: '棉花' },
+        { value: 679, name: '未知类', selected: true}
       ]
     },
+    //,itemStyle: {color:''}
     {
       name: 'Access From',
       type: 'pie',
@@ -108,15 +119,18 @@ option = {
       ]
     }
   ]
-};
+  };
+  if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+  window.addEventListener('resize', myChart.resize);
+  return { initChart };
+}  
 
 
 
-if (option && typeof option === 'object') {
-  myChart.setOption(option);
-}
 
-window.addEventListener('resize', myChart.resize);
+
 </script>
 <style>
 #chart-container {

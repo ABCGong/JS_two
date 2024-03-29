@@ -134,7 +134,7 @@ const value4 = ref([])
 const myopen = ref(false)
 const isload = ref(true)
 const cls=ref("tool")
-const load=()=>{
+/*const load=()=>{
   stepadd4()
   setTimeout(()=>{
       loading.value=true
@@ -143,7 +143,14 @@ const load=()=>{
     loading.value=false
     cls.value="toolchage"
     isload.value=false
-  },6000)
+  },1000)
+
+}
+*/
+const load=()=>{
+  
+    cls.value="toolchage"
+    isload.value=false
 
 }
 const lv=()=>{
