@@ -33,16 +33,17 @@ option = {
   },
   legend: {
     data: [
-      'Direct',
-      'Marketing',
-      'Search Engine',
-      'Email',
-      'Union Ads',
-      'Video Ads',
-      'Baidu',
-      'Google',
-      'Bing',
-      'Others'
+    '白枯叶病',
+    '纹枯病'  ,
+    '胡麻斑病',
+    '稻瘟病'  ,
+    '小麦锈病',
+    '白粉病'  ,
+    '炭疽病'  ,
+    '蔓枯病'  ,
+    '立枯病'  ,
+    '炭疽病'  ,
+    '未知'    
     ]
   },
   series: [
@@ -68,7 +69,7 @@ option = {
     },
     //,itemStyle: {color:''}
     {
-      name: 'Access From',
+      name: '病害识别',
       type: 'pie',
       radius: ['45%', '60%'],
       labelLine: {
@@ -108,14 +109,17 @@ option = {
         }
       },
       data: [
-        { value: 1048, name: 'Baidu' },
-        { value: 335, name: 'Direct' },
-        { value: 310, name: 'Email' },
-        { value: 251, name: 'Google' },
-        { value: 234, name: 'Union Ads' },
-        { value: 147, name: 'Bing' },
-        { value: 135, name: 'Video Ads' },
-        { value: 102, name: 'Others' }
+        { value: 1048, name: '白枯叶病' },
+        { value: 335, name:  '纹枯病'   },
+        { value: 102, name:  '胡麻斑病' },
+        { value: 310, name:  '稻瘟病'   },
+        { value: 251, name:  '小麦锈病' },
+        { value: 234, name:  '白粉病'   },
+        { value: 147, name:  '炭疽病'   },
+        { value: 135, name:  '蔓枯病'   },
+        { value: 234, name:  '立枯病'   },
+        { value: 147, name:  '炭疽病'   },
+        { value: 102, name:  '未知'     }
       ]
     }
   ]
