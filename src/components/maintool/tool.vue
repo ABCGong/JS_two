@@ -89,7 +89,8 @@
 </div>
       </el-main>
     </el-container>
-    <div v-else-if="!isload"><response/></div>
+    <div v-else-if="!isload && value2[0]=='农作物病害检测V1.2'"><responsez/></div>
+    <div v-else-if="!isload && value2[0]=='农作物害虫检测V1.51'"><responseb/></div>
     
   </div>
   
@@ -121,7 +122,8 @@ import { UploadFilled } from '@element-plus/icons-vue'
 import {ref} from "vue"
 import type { ButtonInstance } from 'element-plus'
 import { onMounted } from 'vue'
-import response  from '@/components/maintool/response.vue'
+import responseb  from '@/components/maintool/responseb.vue'
+import responsez  from '@/components/maintool/responsez.vue'
 const loading = ref(false)
 const ref1 = ref<ButtonInstance>()
 const step=ref(0)
@@ -158,9 +160,11 @@ const lv=()=>{
   loadvedio.value=true
 }
 const stepadd2=()=>{
+
   if(step.value<2){
     step.value++
 }
+console.log(value2.value)
 }
 const stepadd1=()=>{
   if(step.value<1){
@@ -217,16 +221,7 @@ const optionsb = [
     label: '农作物害虫检测V1.51',
   },
 ]
-const optionsc = [
-  {
-    value: '高精度(acc90+)',
-    label: '高精度(acc90+)',
-  },
-  {
-    value: '速度要求(acc82+)',
-    label: '速度要求(acc82+)',
-  },
-]
+
 </script>
 <style scoped>
 .asidez{
