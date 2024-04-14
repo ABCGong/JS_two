@@ -1,11 +1,11 @@
 <template>
     <div class="bg">
-        <div class="tx1">
-        麦浪滚滚
-        </div>
-        <div class="tx2">
-            ———将论文写在祖国大地上
-        </div>
+
+    <video 
+    style="width: 100%; height: 100%; object-fit: fill"
+    autoplay loop muted src="C:\Users\G\Desktop\project\vedio\bk.mp4">
+    </video>
+
     </div>
 
     
@@ -25,28 +25,8 @@
   url("//at.alicdn.com/wf/webfont/wl2T05KepNcG/YGchhCyLwn2D.woff") format("woff");
   font-display: swap;
 }
-.tx1{
-    background: linear-gradient(to right, #ffd700, #ffed00);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size:85px;
-    text-align: center;
-    font-family: "阿里妈妈东方大楷 Regular";
-    padding-top:10% ;
-    
-}
-.tx2{
-    font-family:"阿里妈妈数黑体 Bold" ;
-    text-align: right;
-    font-size: 35px;
-    padding-right: 60px;
-    color: black;
-}
+
 .bg{
-    background-image: url("C:/Users/G/Desktop/project/vue-project/src/components/maintool/bg.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 100%;
     padding: 0;
     margin: 0;

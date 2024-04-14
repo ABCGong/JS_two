@@ -1,7 +1,7 @@
 <template>
     <el-descriptions title="模型识别与分析结果" column=1 class="bg">
       <el-descriptions-item label="模型" >农作物病害识别</el-descriptions-item>
-      <el-descriptions-item label="处理时间" >1min23s</el-descriptions-item>
+      <el-descriptions-item label="处理时间" >3min23s</el-descriptions-item>
       <el-descriptions-item label="识别到农作物种类">
         <el-tag id="tag" size="small" v-for="item in lzw">{{ item }}</el-tag>
 
@@ -166,7 +166,7 @@ const list=[
         'id':4,
         "c":"棉花",
         'bug':[],
-        'msg':"未检出病害"
+        'msg':"棉花病害分类得分均较低，请仔细检测->未检出病害"
         
     },
     {

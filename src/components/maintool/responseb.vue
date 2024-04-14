@@ -1,7 +1,7 @@
 <template>
     <el-descriptions title="模型识别与分析结果" column=1 class="bg">
       <el-descriptions-item label="模型" >农作物虫害识别</el-descriptions-item>
-      <el-descriptions-item label="处理时间" >2min05s</el-descriptions-item>
+      <el-descriptions-item label="处理时间" >3min15s</el-descriptions-item>
       <el-descriptions-item label="识别到农作物种类">
         <el-tag id="tag" size="small" v-for="item in lzw">{{ item }}</el-tag>
 
@@ -81,9 +81,9 @@ const add=()=>{
     }
 }
 const imgL=[
-    "src\\pic\\21.png",
-    "src\\pic\\22.png",
-    "src\\pic\\23.png",
+    "src\\pic\\21.JPG",
+    "src\\pic\\22.JPG",
+    "src\\pic\\23.JPG",
 
 ]
 const neg=()=>{

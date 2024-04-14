@@ -29,7 +29,7 @@ let inputzh=ref('')
 let inputpd=ref('')
 const router = useRouter()
 function blogin(){
-  if(inputpd.value==="1" && inputzh.value==="1"){
+  if(inputpd.value==="123456" && inputzh.value==="admin"){
     user.name="Admin"
     user.isAdmin=true
     router.push({

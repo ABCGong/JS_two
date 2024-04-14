@@ -13,7 +13,7 @@
     multiple
     ref="ref1"
     v-loading="loadvedio"
-    v-if="true"
+    v-if="!endload"
   >
     <el-icon class="el-icon--upload"><upload-filled /></el-icon>
     <div class="el-upload__text">
@@ -23,10 +23,11 @@
       <div class="el-upload__tip">
         MP4/MOV格式视频，大小不超过600MB
       </div>
-
-
     </template>
   </el-upload>
+  <div class="upload-demo" style="height: 40%;" v-else >
+    <img src="C:\Users\G\Desktop\project\vue-project\src\components\maintool\img_upload_success.svg" alt="" style="margin-left: 15%;">
+  </div>
     <el-card style="width: 480px;margin-top: 140px;margin-left: 46px;" shadow="always">
         <el-text class="mx-1" size="large">*请在网络状况良好时使用</el-text>
         <br/>
@@ -89,8 +90,8 @@
 </div>
       </el-main>
     </el-container>
-    <div v-else-if="!isload && value2[0]=='农作物病害检测V1.2'"><responsez/></div>
-    <div v-else-if="!isload && value2[0]=='农作物害虫检测V1.51'"><responseb/></div>
+    <div v-else-if="!isload && value2 == '农作物病害检测V1.2'"><responsez/></div>
+    <div v-else-if="!isload && value2 == '农作物害虫检测V1.51'"><responseb/></div>
     
   </div>
   
@@ -124,13 +125,15 @@ import type { ButtonInstance } from 'element-plus'
 import { onMounted } from 'vue'
 import responseb  from '@/components/maintool/responseb.vue'
 import responsez  from '@/components/maintool/responsez.vue'
+import axios from 'axios';
+
 const loading = ref(false)
 const ref1 = ref<ButtonInstance>()
 const step=ref(0)
 const ref3 = ref<ButtonInstance>()
 const loadvedio=ref(false)
 const value1 = ref([])
-const value2 = ref([])
+const value2 = ref('')
 const value3 = ref([])
 const value4 = ref([]) 
 const myopen = ref(false)
@@ -149,22 +152,69 @@ const cls=ref("tool")
 
 }
 */
+let endload=ref(false)
+let okz=ref(false)
+let okb=ref(false)
+
 const load=()=>{
-  
+  console.log("YES")
+  if(value2.value=="农作物病害检测V1.2"){
+    axios.get('http://124.70.132.115:8080/upload/bh')
+      .then(function (response:any) {
+        console.log(response);
+      })
+      .catch(function (error:any) {
+        console.log(error);
+      });
+  console.log("YES")
+  loading.value=true
+  setTimeout(()=>{
     cls.value="toolchage"
+    loading.value=false
     isload.value=false
+  },16000)
+  }else{
+    axios.get('http://124.70.132.115:8080/upload/ch')
+      .then(function (response:any) {
+        console.log(response);
+      })
+      .catch(function (error:any) {
+        console.log(error);
+      });
+  console.log("YES")
+  loading.value=true
+  setTimeout(()=>{
+    cls.value="toolchage"
+    loading.value=false
+    isload.value=false
+  },16000)
+  }
 
 }
 const lv=()=>{
+  console.log("YES")
+  axios.get('http://124.70.132.115:8080/vedio')
+      .then(function (response:any) {
+        console.log(response);
+      })
+      .catch(function (error:any) {
+        console.log(error);
+      });
+  console.log("YES")
 
   loadvedio.value=true
+
+  setTimeout(()=>{
+    endload.value=true
+    loadvedio.value=false
+  },1000)
 }
 const stepadd2=()=>{
 
   if(step.value<2){
     step.value++
 }
-console.log(value2.value)
+  console.log(value2.value)
 }
 const stepadd1=()=>{
   if(step.value<1){

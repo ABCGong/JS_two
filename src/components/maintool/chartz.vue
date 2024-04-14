@@ -41,7 +41,7 @@ option = {
     '大斑病'    ,
     '花叶病毒病',
     '细菌性斑疹',
-    '健康' ,     
+    '未检出' ,     
     '炭疽病'   , 
     '病毒病'  ,  
     '未知'       
@@ -114,13 +114,13 @@ option = {
       data: [
         { value: 268, name:  '白粉病'    },
         { value: 230, name:  '赤霉病'     },
-        { value: 325, name:  '健康'        },
+        { value: 325, name:  '未检出'        },
         { value: 135, name:  '白叶枯病'    },
         { value: 125, name:  '胡麻斑病'    },
         { value: 396, name:  '大斑病'      },
         { value: 234, name:  '花叶病毒病'   },
         { value: 441, name:  '细菌性斑疹'   },
-        { value: 168, name:  '健康'       },
+        { value: 168, name:  '未检出'       },
         { value: 135, name:  '炭疽病'    },
         { value: 189, name:  '病毒病'    },
         { value: 452, name:  '未知'      }
