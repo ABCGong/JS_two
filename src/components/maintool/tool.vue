@@ -207,7 +207,7 @@ const lv=()=>{
   setTimeout(()=>{
     endload.value=true
     loadvedio.value=false
-  },1000)
+  },20000)
 }
 const stepadd2=()=>{
 
