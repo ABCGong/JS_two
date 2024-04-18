@@ -1,24 +1,13 @@
 <template>
     <el-row>
-      <el-col :span="6">
-        <el-statistic title="收集农作物数据条数" :value="268500" />
+      <el-col :span="8">
+        <el-statistic title="收集农作物病害数据条数" :value="outputValue2" />
+      </el-col>
+      <el-col :span="8">
+        <el-statistic title="收集农作物虫害数据条数" :value="outputValue1" />
       </el-col>
       <el-col :span="6">
-        <el-statistic title="收集害虫数据条数" :value="outputValue" />
-      </el-col>
-      <el-col :span="6">
-        <el-statistic :value="98">
-          <template #title>
-            <div style="display: inline-flex; align-items: center">
-              病虫害识别正确率
-            </div>
-          </template>
-          <template #suffix>/100</template>
-        </el-statistic>
-      </el-col>
-
-      <el-col :span="6">
-        <el-statistic title="生成农业对策与建议" :value="562">
+        <el-statistic title="生成农业对策与建议" :value="129">
           <template #suffix>
             <el-icon style="vertical-align: -0.125em">
               <ChatLineRound />
@@ -34,11 +23,17 @@
   import { useTransition } from '@vueuse/core'
   import { ChatLineRound, Male } from '@element-plus/icons-vue'
   
-  const source = ref(0)
-  const outputValue = useTransition(source, {
+  const source1 = ref(0)
+  const outputValue1 = useTransition(source1, {
     duration: 1500,
   })
-  source.value = 172000
+  source1.value = 80235
+
+  const source2 = ref(0)
+  const outputValue2 = useTransition(source2, {
+    duration: 1500,
+  })
+  source2.value = 86167
   </script>
   
   <style scoped>

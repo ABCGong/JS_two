@@ -5,7 +5,7 @@ import { defineStore, acceptHMRUpdate } from 'pinia'
  * Simulate a login
  */
 function apiLogin(a: string, p: string) {
-  if (a === '18280874238' && p === '123456') return Promise.resolve({ isAdmin: true })
+  if (a === 'admin' && p === '123456') return Promise.resolve({  name:"管理员",isAdmin: true,img:"https://img.zcool.cn/community/01e6915e78374ea801216518a28ae2.jpg@1280w_1l_2o_100sh.jpg" })
   if (p === 'ed') return Promise.resolve({ isAdmin: false })
   return Promise.reject(new Error('invalid credentials'))
 }
@@ -13,9 +13,6 @@ function apiLogin(a: string, p: string) {
 export const useUserStore = defineStore({
   id: 'user',
   state: () => ({
-    name:"",
-    isAdmin:true,
-    img:"https://img.zcool.cn/community/01e6915e78374ea801216518a28ae2.jpg@1280w_1l_2o_100sh.jpg"
   }),
 
   actions: {
